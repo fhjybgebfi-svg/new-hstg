@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090516"><title>C666 Cyber War</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header><a class="logo" href="#">C666 <small>CYBER WAR</small></a><div class="wallet"><span>💎 <b id="diamonds">2500</b></span><span>🪙 <b id="coins">850</b></span></div></header>
+<div class="shell">
+<nav id="nav">
+<button class="selected" data-page="home">🏠 Beranda</button><button data-page="play">⚔️ Arena</button><button data-page="character">👨‍🚀 Karakter</button><button data-page="store">💎 Diamond</button><button data-page="spin">🎰 Lucky Spin</button><button data-page="inventory">🎒 Inventory</button><button data-page="events">🎃 Event</button><button data-page="admin">🛠️ Developer</button>
+</nav>
+<main>
+<section id="home" class="page">
+<div class="hero card"><div><span class="eyebrow">SEASON 01 • NEON FRONTIER</span><h1>ENTER THE<br><em>CYBER WAR</em></h1><p>Bangun skuad astronot, kuasai arena, kumpulkan skin, dan menangkan perang antarbintang.</p><button class="primary" data-open="play">MASUK ARENA →</button></div><div class="hero-char"><div class="astro"><i class="visor"><b></b><b></b></i><i class="suit"></i><i class="leg l"></i><i class="leg r"></i></div></div></div>
+<div class="tiles"><article class="card"><strong>⚔️ Team Battle</strong><p>Mode arena melawan bot atau pemain lain.</p></article><article class="card"><strong>🎰 Lucky Spin</strong><p>Koleksi skin dan item kosmetik.</p></article><article class="card"><strong>🌐 Multiplayer</strong><p>Buat room dan undang teman lewat kode.</p></article><article class="card"><strong>🛠️ Event Control</strong><p>Atur tema event melalui developer panel.</p></article></div>
+<div class="card note">Mode demo memakai saldo virtual. Pembelian uang sungguhan dan akun Google belum diaktifkan.</div>
+</section>
+<section id="play" class="page hidden">
+<div class="card"><div class="between"><div><h2>⚔️ Neon Arena</h2><p class="muted">WASD / tombol panah untuk bergerak. Space untuk menembak bot.</p></div><div class="stats">❤️ <b id="hp">100</b>　KO <b id="kills">0</b></div></div>
+<canvas id="arena" width="960" height="540"></canvas>
+<div class="actions"><button id="start">▶ Mulai bot match</button><button id="fire">✦ Tembak</button><button id="pause">Ⅱ Jeda</button></div>
+<hr><h3>🌐 Multiplayer Room</h3><div class="formgrid"><label>Nama pilot<input id="pilotName" maxlength="18" value="C666 Astro"></label><label>Kode room (kosong = buat baru)<input id="roomCode" maxlength="8" placeholder="Mis. A1B2C3"></label><label>Alamat server<input id="serverUrl" placeholder="https://alamat-server-anda"></label></div><div class="actions"><button id="connect">Hubungkan / Buat Room</button><button id="copyRoom">Salin kode room</button><span id="connection" class="muted">Belum terhubung</span></div><div class="chatbox"><div id="chatlog" class="chatlog"></div><div class="chatrow"><input id="chatInput" maxlength="180" placeholder="Tulis pesan ke room"><button id="sendChat">Kirim</button></div></div><div id="mobilePad" class="pad"><span></span><button data-dir="up">▲</button><span></span><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button></div></div>
+</section>
+<section id="character" class="page hidden"><div class="card"><h2>👨‍🚀 Character Lab</h2><div class="character-preview"><div class="astro large"><i class="visor"><b></b><b></b></i><i class="suit" id="previewSuit"></i><i class="leg l"></i><i class="leg r"></i></div><div><h3 id="characterName">C666 Astro</h3><p class="muted">Mini astronaut • Vanguard</p></div></div><h3>Warna armor</h3><div id="swatches" class="swatches"></div><label>Nama pilot<input id="nameInput" maxlength="18" value="C666 Astro"></label><button id="saveCharacter">Simpan karakter</button></div></section>
+<section id="store" class="page hidden"><div class="card"><h2>💎 Diamond Store</h2><p class="muted">Paket saldo virtual untuk pengujian. Tidak ada pembayaran sungguhan.</p><div id="packages" class="tiles"></div></div></section>
+<section id="spin" class="page hidden"><div class="card"><h2>🎰 Lucky Spin</h2><div class="spinbox"><div class="crate">🎁</div><div><h2 id="spinResult">NEON CRATE</h2><p class="muted">50 💎 satu putaran • 450 💎 sepuluh putaran</p><p class="muted">Common 55% · Rare 25% · Epic 14% · Legendary 5% · Mythic 1%</p></div></div><div class="actions"><button id="spin1">Putar 1x • 50 💎</button><button id="spin10">Putar 10x • 450 💎</button></div></div></section>
+<section id="inventory" class="page hidden"><div class="card"><h2>🎒 Inventory</h2><div id="items" class="itemlist"></div></div></section>
+<section id="events" class="page hidden"><div class="card"><h2>🎃 Event aktif</h2><div id="eventCard" class="eventcard"><span class="eyebrow">SEASON 01</span><h3>Neon Frontier</h3><p>Arena neon ungu standar.</p></div></div></section>
+<section id="admin" class="page hidden"><div class="card admin"><span class="eyebrow">DEVELOPER CONSOLE</span><h2>🛠️ Event Creator</h2><p class="muted">Tulis instruksi event. Event lokal berlaku di browser ini; event room memerlukan server dan token admin.</p><label>Perintah event<input id="eventCommand" value="Tambahkan event Halloween, semua map gelap, labu dan hantu"></label><div class="actions"><button id="applyEvent">Terapkan event</button><button class="secondary" id="clearEvent">Hapus event</button></div><label>Token admin server<input id="adminToken" type="password" autocomplete="off" placeholder="Isi token ADMIN_TOKEN di server"></label><div id="adminLog" class="console">Console siap.</div><hr><h3>Bundle spin</h3><label>Deskripsi bundle<input id="bundleCommand" value="Buat skin animasi cyberpunk ungu dan senjata neon"></label><button id="makeBundle">Buat bundle</button><div id="bundleLog" class="console">Belum ada bundle baru.</div></div></section>
+</main></div>
+<footer>C666 CYBER WAR • Self-hosted multiplayer prototype</footer>
+<script src="/socket.io/socket.io.js"></script><script src="/app.js"></script>
+</body></html>
